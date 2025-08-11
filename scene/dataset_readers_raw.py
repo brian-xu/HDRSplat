@@ -201,7 +201,7 @@ def readColmapSceneInfo(path, images, eval, denoise_method, llffhold=8):
 
     cam_infos_unsorted = readColmapCameras(cam_extrinsics=cam_extrinsics, cam_intrinsics=cam_intrinsics, images_folder=os.path.join(path, reading_img_dir), raw_folder=os.path.join(path, reading_raw_dir),scene_path=path, denoise_method=denoise_method)
     cam_infos = sorted(cam_infos_unsorted.copy(), key = lambda x : x.image_name)
-
+    print([c.image_name for c in cam_infos])
     if eval:
         train_file_path = os.path.join(path, "train.txt")
         with open(train_file_path, 'r') as file:

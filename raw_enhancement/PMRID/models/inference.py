@@ -6,8 +6,7 @@ import random
 import json
 import numpy as np
 from raw_enhancement.PMRID.utils import RawUtils
-
-
+import pathlib
 
 # print(raw.shape, raw.min(), raw.max())
 
@@ -54,7 +53,8 @@ class Denoiser:
     def __init__(self, ksigma, inp_scale=256.0):
      
         net = Network()
-        checkpoint = torch.load("/home/cilab/shreyas/codes/gaussian-splatting/raw_enhancement/PMRID/models/torch_pretrained.ckp")
+        model_dir = pathlib.Path(__file__).parent.resolve()
+        checkpoint = torch.load(model_dir / "torch_pretrained.ckp")
         net.load_state_dict(checkpoint)
         net.eval()
 

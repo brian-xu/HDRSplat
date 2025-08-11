@@ -28,7 +28,6 @@ import matplotlib.pyplot as plt
 from internal import image as lib_image
 import numpy as np
 from PIL import Image
-import bm3d
 import cv2
 import jax 
 import jax.numpy as jnp

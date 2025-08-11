@@ -29,6 +29,7 @@ from scene.colmap_loader import read_extrinsics_binary, read_intrinsics_binary, 
 from utils.graphics_utils import getWorld2View2, focal2fov, getIntrinsicMatrix
 import numpy as np
 from PIL import Image
+import matplotlib.pyplot as plt
 
 import time
 

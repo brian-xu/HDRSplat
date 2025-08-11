@@ -217,7 +217,7 @@ def bilinear_demosaic(bayer: _Array,
     # so alt + z will have every pixel filled in.
     return alt + z
 
-  r, g1, g2, b = [bayer[(i//2)::2, (i%2)::2] for i in range(4)]
+  g1, b, r, g2 = [bayer[(i//2)::2, (i%2)::2] for i in range(4)]
   r = bilinear_upsample(r)
   # Flip in x and y before and after calling upsample, as bilinear_upsample
   # assumes that the samples are at the top-left corner of the 2x2 sample.
@@ -322,6 +322,7 @@ def process_exif(exif):
     meta: a dict of the relevant metadata for running RawNeRF.
   """
   meta = {}
+  exif = exif[0]
   print(exif['ShutterSpeed'])
   #exif = exif[0]
   # Convert from array of dicts (exifs) to dict of arrays (meta).
